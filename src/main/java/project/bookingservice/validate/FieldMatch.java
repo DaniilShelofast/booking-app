@@ -5,7 +5,7 @@ import jakarta.validation.Payload;
 import java.lang.annotation.*;
 
 @Documented
-@Constraint(validatedBy = FieldMatchValidator.class)
+@Constraint(validatedBy = {ValidDates.class, ValidPasswords.class})
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface FieldMatch {
