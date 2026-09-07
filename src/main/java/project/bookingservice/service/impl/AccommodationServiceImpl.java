@@ -26,16 +26,11 @@ public class AccommodationServiceImpl implements AccommodationService {
         return accommodationMapper.toDto(accommodation);
     }
 
-   /* @Override
-    @Transactional()
-    public Page<AccommodationDto> getAllAccommodations(Pageable pageable) {
-        return accommodationRepository.findAvailable(pageable)
-                .map(accommodationMapper::toDto);
-    }*/
-
     @Override
+    @Transactional(readOnly = true)
     public Page<AccommodationDto> getAllAccommodations(Pageable pageable) {
-        return null;
+        return accommodationRepository.getAvailableAccommodations(pageable)
+                .map(accommodationMapper::toDto);
     }
 
     @Override

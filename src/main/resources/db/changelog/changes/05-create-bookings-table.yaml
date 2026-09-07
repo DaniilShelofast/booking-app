@@ -1,0 +1,54 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-bookings-table
+      author: user
+      changes:
+        - createTable:
+            tableName: bookings
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: check_in
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: check_out
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: accommodation_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: bookings
+            constraintName: fk_bookings_user
+            referencedColumnNames: id
+            referencedTableName: users
+
+        - addForeignKeyConstraint:
+            baseColumnNames: accommodation_id
+            baseTableName: bookings
+            constraintName: fk_bookings_accommodation
+            referencedColumnNames: id
+            referencedTableName: accommodations
