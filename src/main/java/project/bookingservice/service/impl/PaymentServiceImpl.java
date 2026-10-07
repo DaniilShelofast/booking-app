@@ -42,6 +42,7 @@ public class PaymentServiceImpl implements PaymentService {
     private final PaymentSpecificationBuilder specificationBuilder;
     private final PaymentSearchUserSpecificationProvider paymentSearchUserSpecificationProvider;
 
+    // Test commit check
     // todo getPaymentsByUser мені взагалі не подобається
     @Override
     public List<PaymentResponseDto> getPaymentsByUser(PaymentSearchParametersDto parametersDto) {
