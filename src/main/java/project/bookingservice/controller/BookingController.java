@@ -24,7 +24,6 @@ public class BookingController {
         return bookingService.createBooking(requestDto);
     }
 
-    //todo check method
     @GetMapping
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public List<BookingDto> getBookingsByUserIdAndStatus(

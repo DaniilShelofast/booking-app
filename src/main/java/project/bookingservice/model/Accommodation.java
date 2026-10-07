@@ -1,6 +1,7 @@
 package project.bookingservice.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Positive;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,7 +32,7 @@ public class Accommodation {
     @Column(nullable = false)
     @Positive
     private BigDecimal dailyRate;
-    @Positive
+    @Min(0)
     private Integer availability;
     @Column(nullable = false, columnDefinition = "TINYINT(1)")
     private boolean isDeleted = false;

@@ -43,7 +43,8 @@ public class SecurityConfig {
                                         "/auth/**",
                                         "/accommodations/getAllAccommodations",
                                         "/accommodations/getAccommodationById",
-                                        "/error")
+                                        "/error",
+                                        "/payments/**")
                                 .permitAll()
                                 .anyRequest()
                                 .authenticated()
