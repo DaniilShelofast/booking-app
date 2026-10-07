@@ -6,7 +6,7 @@ import project.bookingservice.model.Booking;
 import project.bookingservice.repository.SpecificationProvider;
 
 @Component
-public class UserSpecificationProvider implements SpecificationProvider<Booking, Long> {
+public class BookingSearchUserSpecificationProvider implements SpecificationProvider<Booking, Long> {
     @Override
     public Specification<Booking> getSpecification(Long param) {
         return (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("user").get("id"), param);

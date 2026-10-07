@@ -1,18 +1,17 @@
-package project.bookingservice.repository;
+package project.bookingservice.repository.booking;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 import project.bookingservice.dto.booking.BookingSearchParametersDto;
 import project.bookingservice.model.Booking;
-import project.bookingservice.repository.booking.StatusSpecificationProvider;
-import project.bookingservice.repository.booking.UserSpecificationProvider;
+import project.bookingservice.repository.SpecificationBuilder;
 
 @RequiredArgsConstructor
 @Component
-public class BookingSpecificationBuilder implements SpecificationBuilder<Booking> {
-    private final StatusSpecificationProvider statusSpecificationProvider;
-    private final UserSpecificationProvider userSpecificationProvider;
+public class BookingSpecificationBuilder implements SpecificationBuilder<Booking, BookingSearchParametersDto> {
+    private final BookingSearchStatusSpecificationProvider statusSpecificationProvider;
+    private final BookingSearchUserSpecificationProvider userSpecificationProvider;
 
     @Override
     public Specification<Booking> build(BookingSearchParametersDto searchParametersDto) {
